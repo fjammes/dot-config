@@ -1,12 +1,26 @@
-lsb_release -d
+#!/bin/bash
 
 DIR=$(cd "$(dirname "$0")"; pwd -P)
-
 GLOBAL_GITIGNORE=".gitignore_global"
 
-ln -sf ${DIR}/${GLOBAL_GITIGNORE} $HOME
-ln -sf ${DIR}/.vimrc $HOME
+[ -n "$BYOBU_DISTRO" ] || 
+{
+    echo "Please start byobu before running this script"
+    exit 1
+}
 
+case "$BYOBU_DISTRO" in
+	"Ubuntu")
+		su -c "patch --backup /usr/share/byobu/profiles/bashrc < ${DIR}/Ubuntu14.04/usr/share/byobu/profiles/bashrc.patch"
+	;;
+	*)
+		# Use nice colors (green / red / blue)
+		echo "Distro is $BYOBU_DISTRO"
+	;;
+esac
+
+
+# create git config
 git config --global user.name "Fabrice Jammes"
 git config --global user.email "fabrice.jammes@in2p3.fr"
 
@@ -21,3 +35,8 @@ git config --global push.default simple
 
 git config --global core.excludesfile ${HOME}/${GLOBAL_GITIGNORE}
 git config --global core.editor vi 
+
+# symlink config files
+ln -sf ${DIR}/${GLOBAL_GITIGNORE} $HOME
+ln -sf ${DIR}/.vimrc $HOME
+

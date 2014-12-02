@@ -27,8 +27,10 @@ git config --global user.email "fabrice.jammes@in2p3.fr"
 git config --global color.ui auto
 
 git config --global alias.st "status" 
-git config --global alias.resetorigin "!f() { git fetch origin && git reset --hard @{u} && git clean -f -d; }; f"
+git config --global alias.resetorigin "!git fetch origin && git reset --hard @{u} && git clean -f -d"
 git config --global alias.logfull "log --graph --decorate"
+git config --global alias.tagshowlast "describe --tags --abbrev=0"
+git config --global alias.tagorigintip "!f() { git resetorigin && git tag -u fabrice.jammes -f -a -m \"Version $1\" -s \"$1\"; }; f"
 git config --global alias.rebasemaster "!git fetch origin master && git rebase -i origin/master"
 
 git config --global push.default simple

@@ -1,5 +1,3 @@
 # User specific aliases and functions
 alias qserv-kill='killall mysqld mysql-proxy xrootd java python'
-#alias qserv-prepare='qserv-kill; cd $QSERV_DIR/admin; scons; qserv-start.sh'
-#alias qserv-test01='qserv-prepare; qserv-benchmark.py --case=01 -l'
-#alias qserv-test='qserv-prepare; qserv-testdata.py'
+alias qserv-clone='git clone ssh://git@git.lsstcorp.org/LSST/DMS/qserv'

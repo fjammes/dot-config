@@ -2,7 +2,7 @@ execute pathogen#infect()
 
 syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 
 map <C-&> :bp<CR>
 map <C-é> :bn<CR>
@@ -15,17 +15,17 @@ nnoremap <silent> <F12> :retab <bar> %s/\s\+$//<CR>
 " scons
 autocmd BufReadPre SConscript set filetype=python
 
-" Sets the autoindent spacing to 4 spaces. setlocal to limit this to the current (C++) buffer.
-setlocal shiftwidth=4
+" Sets the autoindent spacing to 4 spaces.
+set shiftwidth=4
 
 " Sets the spacing for tab characters to 4 spaces.
-setlocal softtabstop=4
+set softtabstop=4
 
 " Always use spaces; never use tab characters.
-setlocal expandtab
+set expandtab
 
 " Limit the length of a line to 78 characters. Standard 4-6 actually specifies up to 110.
-setlocal textwidth=78
+set textwidth=78
 
 " Set the C indent configuration.
 "
@@ -35,7 +35,7 @@ setlocal textwidth=78
 "     (0: Align lines after "(foo" next to the unclosed parenthesis.
 "     u0: Same as above for the next level of parentheses deeper.
 "     W2s: Indent lines following a line-terminating unclosed parenthesis by two shiftwidths (8 spaces)
-" setlocal cino=:0,l1,g0,(0,u0,Ws
+set cino=:0,l1,g0,(0,u0,Ws
 
 " Allow comments to start with two asterisks for Doxygen.
 ""setlocal comments^=s2:/**,mb:*,ex:*/

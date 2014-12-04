@@ -7,24 +7,20 @@ DIR=$(cd "$(dirname "$0")"; pwd -P)
 GLOBAL_GITIGNORE=".gitignore_global"
 BYOBU_BASHRC="/usr/share/byobu/profiles/bashrc"
 
-[ -n "$BYOBU_DISTRO" ] ||
+[ -n "$BYOBU_DISTRO" ] && 
 {
-    echo "Please start byobu before running this script"
-    exit 1
-}
-
-case "$BYOBU_DISTRO" in
+    case "$BYOBU_DISTRO" in
         "Ubuntu")
-                if [ ! -f "${BYOBU_BASHRC}.orig" ]; then
-                    su -c "patch --backup ${BYOBU_BASHRC} < ${DIR}/Ubuntu14.04${BYOBU_BASHRC}.patch"
-                fi
+            if [ ! -f "${BYOBU_BASHRC}.orig" ]; then
+                su -c "patch --backup ${BYOBU_BASHRC} < ${DIR}/Ubuntu14.04${BYOBU_BASHRC}.patch"
+            fi
         ;;
         *)
-                # Use nice colors (green / red / blue)
-                echo "Distro is $BYOBU_DISTRO"
+            # Use nice colors (green / red / blue)
+            echo "Distro is $BYOBU_DISTRO"
         ;;
-esac
-
+    esac
+}
 # GIT
 
 # create git config

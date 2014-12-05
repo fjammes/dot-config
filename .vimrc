@@ -2,7 +2,7 @@ execute pathogen#infect()
 
 syntax enable
 set background=dark
-" colorscheme solarized
+colorscheme solarized
 
 map <C-&> :bp<CR>
 map <C-é> :bn<CR>

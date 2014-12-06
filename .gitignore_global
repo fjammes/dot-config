@@ -1,2 +1,6 @@
+# eclipse
+.cproject
+.project
+# vim
 .*.swp
 .*.swo

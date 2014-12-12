@@ -1,5 +1,8 @@
 # TODO: integrate in .bashrc
 
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_rsa_lsst
+
 # User specific aliases and functions
 alias qserv-kill='killall mysqld mysql-proxy xrootd java python'
 alias qserv-clone='git clone ssh://git@git.lsstcorp.org/LSST/DMS/qserv'

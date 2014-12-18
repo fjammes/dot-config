@@ -56,4 +56,5 @@ git clone git://github.com/altercation/vim-colors-solarized.git ${THEME}
 # symlink config files
 ln -sf ${DIR}/${GLOBAL_GITIGNORE} $HOME
 ln -sf ${DIR}/.vimrc $HOME
-
+mkdir -p $HOME/.eups
+ln -sf ${DIR}/dot-eups/startup.py $HOME/.eups

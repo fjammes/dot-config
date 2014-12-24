@@ -1,6 +1,12 @@
-execute pathogen#infect()
+" Pathogen load
+filetype off
 
-syntax enable
+call pathogen#infect()
+call pathogen#helptags()
+
+filetype plugin indent on
+syntax on
+
 set background=dark
 colorscheme solarized
 

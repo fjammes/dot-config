@@ -49,9 +49,13 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 cd ~/.vim/bundle
-THEME=solarized
-rm -rf ${THEME}
-git clone git://github.com/altercation/vim-colors-solarized.git ${THEME}
+PLUGIN=solarized
+rm -rf ${PLUGIN}
+git clone git://github.com/altercation/vim-colors-solarized.git ${PLUGIN}
+
+PLUGIN=python-mode
+rm -rf ${PLUGIN}
+git clone git://github.com/klen/${PLUGIN}.git
 
 # symlink config files
 ln -sf ${DIR}/${GLOBAL_GITIGNORE} $HOME

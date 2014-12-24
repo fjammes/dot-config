@@ -18,7 +18,7 @@
 					<folderInfo id="cdt.managedbuild.toolchain.gnu.base.1103657301.2035644028" name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.base.1933566329" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.base">
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.target.gnu.platform.base.512510898" name="Debug Platform" osList="linux,hpux,aix,qnx" superClass="cdt.managedbuild.target.gnu.platform.base"/>
-							<builder arguments="~/stack/loadLSST.bash &amp;&amp; setup -r ~/src/qserv &amp;&amp; scons" autoBuildTarget="all" buildPath="${workspace_loc:/qserv}/build" cleanBuildTarget="clean" command="." enableAutoBuild="false" enableCleanBuild="true" enabledIncrementalBuild="true" id="cdt.managedbuild.target.gnu.builder.base.849569105" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" parallelBuildOn="false" superClass="cdt.managedbuild.target.gnu.builder.base"/>
+							<builder arguments="~/stack/loadLSST.bash &amp;&amp; setup -r ~/src/qserv &amp;&amp; scons -j 8" autoBuildTarget="all" buildPath="${workspace_loc:/qserv}/build" cleanBuildTarget="clean" command="." enableAutoBuild="false" enableCleanBuild="true" enabledIncrementalBuild="true" id="cdt.managedbuild.target.gnu.builder.base.849569105" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" parallelBuildOn="false" superClass="cdt.managedbuild.target.gnu.builder.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.base.1750326657" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.base.2144637293" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.base">
 								<option id="gnu.cpp.compiler.option.include.paths.185928989" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
@@ -28,6 +28,7 @@
 									<listOptionValue builtIn="false" value="&quot;${LOG4CXX_DIR}/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${PROTOBUF_DIR}/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XROOTD_DIR}/include/xrootd&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${MYSQL_DIR}/include&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.300772041" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>

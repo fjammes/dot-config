@@ -1,6 +1,7 @@
 # eclipse
 .cproject
 .project
+.pydevproject
 # vim
 .*.swp
 .*.swo

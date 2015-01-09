@@ -34,7 +34,7 @@ git config --global alias.st "status"
 git config --global alias.resetorigin "!git fetch origin && git reset --hard @{u} && git clean -f -d"
 git config --global alias.logfull "log --graph --decorate"
 git config --global alias.tagshowlast "describe --tags --abbrev=0"
-git config --global alias.tagorigintip "!f() { git resetorigin && git tag -u fabrice.jammes -f -a -m \"Version $1\" -s \"$1\"; }; f"
+git config --global alias.tagorigintip "!f() { git resetorigin && git tag -u fabrice.jammes -f -a -m \"Version \$1\" -s \"\$1\"; }; f"
 git config --global alias.rebasemaster "!git fetch origin master && git rebase -i origin/master"
 
 git config --global push.default simple
@@ -46,7 +46,7 @@ git config --global core.editor vi
 
 # install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+curl --insecure -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 cd ~/.vim/bundle
 PLUGIN=solarized

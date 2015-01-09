@@ -7,7 +7,7 @@ call pathogen#helptags()
 filetype plugin indent on
 syntax on
 
-set background=dark
+"set background=dark
 colorscheme solarized
 
 map <C-&> :bp<CR>

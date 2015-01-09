@@ -60,5 +60,9 @@ git clone git://github.com/klen/${PLUGIN}.git
 # symlink config files
 ln -sf ${DIR}/${GLOBAL_GITIGNORE} $HOME
 ln -sf ${DIR}/.vimrc $HOME
+
+# eups setup using user:git tag
 mkdir -p $HOME/.eups
 ln -sf ${DIR}/dot-eups/startup.py $HOME/.eups
+eups declare -t git -r $HOME/src/qserv/
+eups declare -t git -r $HOME/src/qserv-testdata/

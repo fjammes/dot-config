@@ -65,4 +65,4 @@ ln -sf ${DIR}/.vimrc $HOME
 mkdir -p $HOME/.eups
 ln -sf ${DIR}/dot-eups/startup.py $HOME/.eups
 eups declare -t git -r $HOME/src/qserv/
-eups declare -t git -r $HOME/src/qserv-testdata/
+eups declare -t git -r $HOME/src/qserv_testdata/

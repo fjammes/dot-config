@@ -15,6 +15,9 @@ BYOBU_BASHRC="/usr/share/byobu/profiles/bashrc"
                 su -c "patch --backup ${BYOBU_BASHRC} < ${DIR}/Ubuntu14.04${BYOBU_BASHRC}.patch"
             fi
         ;;
+        "Scientific")
+            grep -q -F 'bash_aliases_git' $HOME/.bashrc || echo "source \"$DIR/$BYOBU_DISTRO/bash_aliases_git\"" >> $HOME/.bashrc
+        ;;
         *)
             # Use nice colors (green / red / blue)
             echo "Distro is $BYOBU_DISTRO"
@@ -65,4 +68,4 @@ ln -sf ${DIR}/.vimrc $HOME
 mkdir -p $HOME/.eups
 ln -sf ${DIR}/dot-eups/startup.py $HOME/.eups
 eups declare -t git -r $HOME/src/qserv/
-eups declare -t git -r $HOME/src/qserv-testdata/
+eups declare -t git -r $HOME/src/qserv_testdata/

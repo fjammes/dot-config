@@ -1,7 +1,0 @@
-# git
-source /etc/bash_completion.d/git
-export PS1='\u@\h:\w$(__git_ps1) \$ '
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWUPSTREAM="auto"

@@ -21,6 +21,9 @@ nnoremap <silent> <F12> :retab <bar> %s/\s\+$//<CR>
 " scons
 autocmd BufReadPre SConscript set filetype=python
 
+" markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 " Sets the autoindent spacing to 4 spaces.
 set shiftwidth=4
 

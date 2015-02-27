@@ -1,0 +1,11 @@
+# git
+. /etc/bash_completion.d/git
+# may be required or included in above file
+if [ -e /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
+. /usr/share/git-core/contrib/completion/git-prompt.sh
+fi
+export PS1="\[\e[31m\]\[\e[00;32m\]\u\[\e[00m\]@\[\e[00;36m\]\h\[\e[00m\]:\[\e[00;31m\]\w\[\e[00m\]\$(__git_ps1)\$ "
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM="auto"

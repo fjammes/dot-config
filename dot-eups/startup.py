@@ -7,10 +7,12 @@ hooks.config.Eups.userTags += ["git"]
 def cmdHook(Eups, cmd, opts, args):
    if Eups and cmd == "setup":
        if not opts.tag:
-           opts.tag = ["git"]
+           opts.tag = ["git", "qserv"]
 
            if opts.verbose >= 0:
                import utils
-               print >> utils.stdinfo, "Adding default tags: %s" % (", ".join(opts.tag))
+               msg = "Using default tags: {0} to setup {1}" \
+                   .format(", ".join(opts.tag), ", ".join(args))
+               print >> utils.stdinfo, msg
 
 eups.commandCallbacks.add(cmdHook)

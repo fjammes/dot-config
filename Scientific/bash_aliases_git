@@ -1,5 +1,7 @@
 # git
+if [ -e /etc/bash_completion.d/git ]; then
 . /etc/bash_completion.d/git
+fi
 # may be required or included in above file
 if [ -e /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
 . /usr/share/git-core/contrib/completion/git-prompt.sh

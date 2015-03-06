@@ -32,7 +32,7 @@ alias ls='ls -F'
 alias vi='vim'
 
 # git/byobu prompt
-if [ -n $(which byobu 2> /dev/null) ]; then
+if [ -n "$(which byobu 2> /dev/null)" ]; then
     _byobu_sourced=1 . /usr/bin/byobu-launch
     . $HOME/src/dot-config/Scientific/bash_aliases_git
 fi

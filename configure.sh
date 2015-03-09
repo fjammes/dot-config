@@ -43,7 +43,7 @@ git config --global alias.rebasemaster "!git fetch origin master && git rebase -
 git config --global push.default simple
 
 git config --global core.excludesfile ${HOME}/${GLOBAL_GITIGNORE}
-git config --global core.editor vi
+git config --global core.editor vim
 
 # VI
 

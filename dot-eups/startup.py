@@ -2,7 +2,7 @@
 # eups list -s qserv_testdata -v
 
 hooks.config.Eups.colorize = True
-hooks.config.Eups.userTags += ["git"]
+hooks.config.Eups.userTags += ["git", "qserv"]
 
 def cmdHook(Eups, cmd, opts, args):
    if Eups and cmd == "setup":

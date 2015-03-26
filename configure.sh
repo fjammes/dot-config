@@ -43,26 +43,34 @@ git config --global alias.rebasemaster "!git fetch origin master && git rebase -
 git config --global push.default simple
 
 git config --global core.excludesfile ${HOME}/${GLOBAL_GITIGNORE}
-git config --global core.editor vi
+git config --global core.editor vim
 
 # VI
 
-# install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle
+
+# install vundle 
+PLUGINDIR=~/.vim/bundle/Vundle.vim
+rm -rf ${PLUGINDIR}
+git clone https://github.com/gmarik/Vundle.vim.git ${PLUGINDIR}
+
+# install pathogen
 curl --insecure -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+PLUGINDIR=~/.vim/bundle/solarized
+rm -rf ${PLUGINDIR}
+git clone git://github.com/altercation/vim-colors-solarized.git ${PLUGINDIR}
 
-cd ~/.vim/bundle
-PLUGIN=solarized
-rm -rf ${PLUGIN}
-git clone git://github.com/altercation/vim-colors-solarized.git ${PLUGIN}
-
-PLUGIN=python-mode
-rm -rf ${PLUGIN}
-git clone git://github.com/klen/${PLUGIN}.git
+# install python-mode
+PLUGINDIR=~/.vim/bundle/python-mode
+rm -rf ${PLUGINDIR}
+git clone git://github.com/klen/python-mode.git ${PLUGINDIR}
 
 # symlink config files
 ln -sf ${DIR}/${GLOBAL_GITIGNORE} $HOME
 ln -sf ${DIR}/.vimrc $HOME
+
+# install Vundle plugin
+vim +PluginInstall +qall
 
 # eups setup using user:git tag
 mkdir -p $HOME/.eups

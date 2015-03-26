@@ -59,12 +59,12 @@ case $ENVIRONMENT in
 
 	;;
 
-   INTERACTIVE)		# Interactive/Login settings only.
+   INTERACTIVE|ACCESS)		# Interactive/Login settings only.
 
 	# Put here your commands to be run only in a login session. 
 
 	# Set up the prompt pattern.
-	PS1='${PWD}(${?})>'
+        PS1="[\D{%Y-%m-%d} \t] \u@\h:\w\a \${?##0} \$ "
 	export PS1
 
         if [ -e $ENV ]; then

@@ -10,9 +10,9 @@ BYOBU_BASHRC="/usr/share/byobu/profiles/bashrc"
 [ -n "$BYOBU_DISTRO" ] && 
 {
     case "$BYOBU_DISTRO" in
-        "Ubuntu")
+        "Ubuntu" | "Debian GNU/Linux")
             if [ ! -f "${BYOBU_BASHRC}.orig" ]; then
-                su -c "patch --backup ${BYOBU_BASHRC} < ${DIR}/Ubuntu14.04${BYOBU_BASHRC}.patch"
+                su -c "patch --backup ${BYOBU_BASHRC} < ${DIR}/Debian${BYOBU_BASHRC}.patch"
             fi
         ;;
         "Scientific")

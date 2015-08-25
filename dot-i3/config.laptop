@@ -164,7 +164,7 @@ bar {
 assign [class="Eclipse"] $ws2
 assign [class="Firefox"] $ws3
 assign [class="Thunderbird"] $ws4
-assign [class="Hipchat"] $ws5
+assign [class="HipChat"] $ws5
 
 bindsym $mod+Control+Right workspace next
 bindsym $mod+Control+Left workspace prev

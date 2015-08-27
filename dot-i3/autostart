@@ -1,0 +1,12 @@
+# Multiple screen
+xrandr --output DP-0 --auto --right-of DVI-I-1
+
+# Disable beeps
+xset -b &
+
+# Screen saver
+xset s blank
+xset s 300
+
+# Clipboard manager
+LC_ALL=C parcellite &

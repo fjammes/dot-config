@@ -15,12 +15,6 @@ set $mod Mod4
 # is used in the bar {} block below. ISO 10646 = Unicode
 font pango:FontAwesome 9, DejaVu Sans Mono 9, Terminus 9
 
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, if you need a lot of unicode glyphs or
-# right-to-left text rendering, you should instead use pango for rendering and
-# chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -87,15 +81,16 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $ws1 1: 
-set $ws2 2: 
-set $ws3 3:
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
 set $ws4 4:
 set $ws5 5:
 set $ws6 6: misc
-set $ws7 7: 
-set $ws8 8: 
-set $ws9 9: 
+set $ws7 7:
+set $ws8 8:
+set $ws9 9:
+set $ws10 10:
 
 
 # switch to workspace
@@ -164,6 +159,9 @@ bar {
 # lock computer (Alt + Delete)
 bindcode $mod+119 exec i3lock -c 000000
 
+bindsym $mod+Control+Right workspace next
+bindsym $mod+Control+Left workspace prev
+
 workspace "$ws1" output DVI-I-1
 workspace "$ws2" output DVI-I-1
 workspace "$ws3" output DP-0
@@ -175,9 +173,6 @@ assign [class="Eclipse"] $ws2
 assign [class="Iceweasel"] $ws3
 assign [class="Icedove"] $ws4
 assign [class="HipChat"] $ws5
-
-bindsym $mod+Control+Right workspace next
-bindsym $mod+Control+Left workspace prev
 
 exec ~/.i3/autostart
 exec iceweasel

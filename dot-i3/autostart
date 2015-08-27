@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Multiple screen
 xrandr --output DP-0 --auto --right-of DVI-I-1
 
@@ -10,3 +12,6 @@ xset s 300
 
 # Clipboard manager
 LC_ALL=C parcellite &
+
+## OSD
+dunst &

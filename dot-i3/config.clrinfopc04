@@ -157,7 +157,7 @@ bar {
 }
 
 # lock computer (Alt + Delete)
-bindcode $mod+119 exec i3lock -c 000000
+bindcode $mod+119 exec "~/.i3/fuzzy_lock.sh" 
 
 bindsym $mod+Control+Right workspace next
 bindsym $mod+Control+Left workspace prev

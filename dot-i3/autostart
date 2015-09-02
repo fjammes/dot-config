@@ -7,8 +7,8 @@ xrandr --output DP-0 --auto --right-of DVI-I-1
 xset -b &
 
 # Screen saver
-xset s blank
-xset s 300
+# pre-requisites: sudo apt-get install xautolock scrop
+xautolock -time 15 -locker '~/.i3/fuzzy_lock.sh'&
 
 # Clipboard manager
 LC_ALL=C parcellite &

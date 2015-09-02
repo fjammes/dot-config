@@ -167,8 +167,8 @@ bindcode 122 exec amixer set Master 5%-
 bindcode 123 exec amixer set Master 5%+
 
 # brightness control (Alt + F11 or Alt + F12)
-bindcode 125 exec xbacklight - 10
-bindcode 126 exec xbacklight + 10
+bindcode 232 exec ~/.i3/brightness.sh -0.05
+bindcode 233 exec ~/.i3/brightness.sh +0.05
 
 # use xprop
 assign [class="Eclipse"] $ws2

@@ -1,66 +1,108 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+filetype off
 
-" set the runtime path to include Vundle and initialize
+" set the runtime path to include Vundle and initialize it
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Rykka/riv.vim'
+" let Vundle manage Vundle.
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'fatih/vim-go'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'altercation/vim-colors-solarized'
 
-" Pathogen load
-call pathogen#infect()
-call pathogen#helptags()
-
+call vundle#end()
 filetype plugin indent on
+
 syntax on
 
+" colorscheme Tomorrow-Night
+" ------------------------------------------------------------------
+" Solarized Colorscheme Config
+" ------------------------------------------------------------------
+""let g:solarized_termtrans=1    "default value is 0
+""let g:solarized_termcolors=256    "default value is 16
+""syntax enable
 set background=dark
 colorscheme solarized
+" ------------------------------------------------------------------
 
-map <C-&> :bp<CR>
-map <C-é> :bn<CR>
+" disable bell/beep
+set noerrorbells visualbell t_vb=
 
-" remove trailing slash
-nnoremap <silent> <F12> :retab <bar> %s/\s\+$//<CR>
-" TODO
-" map <F4> <C-w>10-
 
-" scons
-autocmd BufReadPre SConscript set filetype=python
+"" support for Go
+""
+au FileType go au BufWritePre <buffer> GoImports
+au FileType go setlocal formatoptions=cqrot1 tw=80 ai nofoldenable
 
-" markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+" insert mode completion
+set completeopt=menu,longest
 
-" Sets the autoindent spacing to 4 spaces.
+" size of a hard tabstop
+set tabstop=4
+
+" size of an "indent"
 set shiftwidth=4
 
-" Sets the spacing for tab characters to 4 spaces.
+" maximum with of text that is being inserted.
+set textwidth=80
+
+" a combination of spaces and tabs are used to simulate tab stops at a width
+" other than the (hard)tabstop
 set softtabstop=4
 
-" Always use spaces; never use tab characters.
-set expandtab
+set hlsearch        " When there is a previous search pattern, highlight all
+                    " its matches.
+  
+set incsearch       " While typing a search command,
+					"  show immediately where the
+                    " so far typed pattern matches.
 
-" Limit the length of a line to 78 characters. Standard 4-6 actually specifies up to 110.
-set textwidth=78
+set ignorecase      " Ignore case in search patterns.
 
-" Set the C indent configuration.
-"
-"    :0: Align case labels with the enclosing switch.
-"     l1: Indent statements relative to the case label, not anything following.
-"     g0: Align C++ scope (private/public) labels with the enclosing class.
-"     (0: Align lines after "(foo" next to the unclosed parenthesis.
-"     u0: Same as above for the next level of parentheses deeper.
-"     W2s: Indent lines following a line-terminating unclosed parenthesis by two shiftwidths (8 spaces)
-set cino=:0,l1,g0,(0,u0,Ws
+set smartcase       " Override the 'ignorecase' option if the search pattern
+					" contains upper case characters.
 
-" Allow comments to start with two asterisks for Doxygen.
-""setlocal comments^=s2:/**,mb:*,ex:*/
+set ruler " Show the line and column number of the cursor position, separated by a comma.
 
-" Highlights lines using the Doxygen \todo.
-syntax match cTodo /\todo/
+"" line numbers
+set number
 
-fixdel
+set showcmd       " show the command we're typing
+set showfulltag   " show full completion tags
+set showmode      " show the mode all the time
+
+set splitright
+set splitbelow
+
+set showmatch     " show matching bracket
+
+set linebreak  "" wrap at 'breakat' instead of last char
+set magic      "" enable 'magic'
+
+set scrolloff=50  "" keep at least X lines above/below
+set sidescroll=2
+set sidescrolloff=5
+
+set nospell
+
+" always show statusline (useful for powerline)
+set laststatus=2
+
+" set nolist
+" set listchars="tab:\ \ ,trail:•,extends:#,nbsp:."
+" call clearmatches()
+
+" menu-completion
+set wildmode=longest,list,full
+set wildmenu
+
+" make sure we get the proper Ctrl+Left-arrow and +Right escape codes
+set <C-Left>=Od
+set <C-Right>=Oc
+
+"" cycle thru buffers
+:map <C-Right> :bnext<CR>
+:map <C-Left> :bprevious<CR>
+

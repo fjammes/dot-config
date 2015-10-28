@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Multiple screen
+xrandr --output DP-0 --auto --right-of DVI-I-1
+
+# Disable beeps
+xset -b &
+
+# Screen saver
+# pre-requisites: sudo apt-get install xautolock scrop
+xautolock -time 15 -locker '~/.i3/fuzzy_lock.sh'&
+
+# Clipboard manager
+LC_ALL=C parcellite &
+
+## OSD
+dunst &

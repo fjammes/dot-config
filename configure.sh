@@ -56,7 +56,7 @@ git clone https://github.com/gmarik/Vundle.vim.git ${PLUGINDIR}
 
 # symlink config files
 ln -sf ${DIR}/${GLOBAL_GITIGNORE} $HOME
-ln -sf ${DIR}/vimrc $HOME/.vimrc
+ln -sf ${DIR}/.vimrc $HOME
 
 # install Vundle plugins
 vim +PluginInstall +qall

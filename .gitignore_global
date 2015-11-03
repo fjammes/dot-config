@@ -1,9 +1,7 @@
 # eclipse
 .settings
-.cproject
 .project
 .pydevproject
-eclipse.ini
 # vim
 .*.swp
 .*.swo

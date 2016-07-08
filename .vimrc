@@ -106,4 +106,5 @@ set <C-Right>=Oc
 :map <C-Right> :bnext<CR>
 :map <C-Left> :bprevious<CR>
 
+" remove trailing slash
 nnoremap <silent> <F12> :retab <bar> %s/\s\+$//<CR>

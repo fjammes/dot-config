@@ -106,3 +106,4 @@ set <C-Right>=Oc
 :map <C-Right> :bnext<CR>
 :map <C-Left> :bprevious<CR>
 
+nnoremap <silent> <F12> :retab <bar> %s/\s\+$//<CR>

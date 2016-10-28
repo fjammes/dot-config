@@ -1,1 +1,54 @@
-/home/qserv/src/dot-config/ssh_config
+ControlPersist 4h
+ControlMaster auto
+ControlPath ~/.ssh/control:%h:%p:%r
+
+Host lsst-dev lsst-dev.ncsa.illinois.edu
+HostName lsst-dev.ncsa.illinois.edu
+User fjammes
+IdentityFile /home/qserv/.ssh/id_rsa_lsst
+
+Host ccqservbuild
+#GSSAPIAuthentication yes
+#GSSAPIDelegateCredentials yes
+ForwardX11 yes
+User fjammes
+HostName ccqservbuild.in2p3.fr
+ProxyCommand ssh -W %h:%p cc 
+
+Host lsst-git git.lsstcorp.org
+HostName git.lsstcorp.org
+IdentityFile /home/qserv/.ssh/id_rsa_lsst
+
+Host lsst-build8
+HostName lsst-build8.ncsa.illinois.edu
+User fjammes
+IdentityFile /home/qserv/.ssh/id_rsa_lsst
+
+Host lsst-dbdev5
+HostName lsst-dbdev5.ncsa.illinois.edu
+User fjammes
+IdentityFile /home/qserv/.ssh/id_rsa_lsst
+
+Host lsst-dev
+HostName lsst-dev.ncsa.illinois.edu
+User fjammes
+IdentityFile /home/qserv/.ssh/id_rsa_lsst
+
+Host cc
+HostName ccage.in2p3.fr
+User fjammes
+    
+Host lpc
+HostName clrhp05.in2p3.fr
+User fjammes 
+PasswordAuthentication no
+ProxyCommand ssh -i ~/.ssh/id_rsa -W %h:%p fjammes@cc
+IdentityFile ~/.ssh/id_rsa
+
+Host pc
+HostName clrinfopc04.in2p3.fr 
+User fjammes 
+PasswordAuthentication no
+ProxyCommand ssh lpc nc %h %p 
+IdentityFile ~/.ssh/id_rsa
+

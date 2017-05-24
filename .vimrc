@@ -6,10 +6,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle.
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'fatih/vim-go'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'fatih/vim-go'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'VundleVim/Vundle.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -24,7 +25,7 @@ syntax on
 ""let g:solarized_termcolors=256    "default value is 16
 ""syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 " ------------------------------------------------------------------
 
 " disable bell/beep
@@ -43,7 +44,7 @@ set completeopt=menu,longest
 set tabstop=4
 
 " size of an "indent"
-set shiftwidth=4
+set shiftwidth=4 expandtab
 
 " maximum with of text that is being inserted.
 set textwidth=80
@@ -108,3 +109,13 @@ set <C-Right>=Oc
 
 " remove trailing slash
 nnoremap <silent> <F12> :retab <bar> %s/\s\+$//<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0

@@ -60,6 +60,8 @@ ln -sf ${DIR}/.vimrc $HOME
 
 # install Vundle plugins
 vim +PluginInstall +qall
+# Add to install related plugin before enabling theme
+sed "s/\" colorscheme solarized/colorscheme solarized/" $HOME/.vimrc
 
 # finish YouCompleteMe install
 $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer --gocode-complete

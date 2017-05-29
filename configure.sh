@@ -65,9 +65,3 @@ sed "s/\" colorscheme solarized/colorscheme solarized/" $HOME/.vimrc
 
 # finish YouCompleteMe install
 $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer --gocode-complete
-
-# eups setup using user:git tag
-mkdir -p $HOME/.eups
-ln -sf ${DIR}/dot-eups/startup.py $HOME/.eups
-eups declare -t git -r $HOME/src/qserv/
-eups declare -t git -r $HOME/src/qserv_testdata/

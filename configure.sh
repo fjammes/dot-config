@@ -7,7 +7,7 @@ DIR=$(cd "$(dirname "$0")"; pwd -P)
 GLOBAL_GITIGNORE=".gitignore_global"
 BYOBU_BASHRC="/usr/share/byobu/profiles/bashrc"
 
-[ -n "$BYOBU_DISTRO" ] && 
+[ -n "$BYOBU_DISTRO" ] &&
 {
     case "$BYOBU_DISTRO" in
         "Ubuntu" | "Debian GNU/Linux")
@@ -55,7 +55,7 @@ git config --global core.editor vim
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 
-# install vundle 
+# install vundle
 PLUGINDIR=~/.vim/bundle/Vundle.vim
 rm -rf ${PLUGINDIR}
 git clone https://github.com/gmarik/Vundle.vim.git ${PLUGINDIR}
@@ -71,3 +71,14 @@ sed "s/\" colorscheme solarized/colorscheme solarized/" $HOME/.vimrc
 
 # finish YouCompleteMe install
 $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer --gocode-complete
+
+# zsh
+rm -r ~/.oh-my-zsh ~/.zshrc
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+sudo -s -- /bin/chsh -s /bin/zsh qserv
+cat <<EOF > ~/.oh-my-zsh/custom/alias.zsh
+alias cd_provision='cd ~/src/qserv/admin/tools/provision'
+alias cd_kubernetes='cd ~/src/qserv/admin/tools/docker/deployment/kubernetes'
+alias sshqserv='ssh -F ~/.lsst/qserv-cluster/ssh_config'
+EOF

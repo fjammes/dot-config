@@ -18,6 +18,10 @@ BYOBU_BASHRC="/usr/share/byobu/profiles/bashrc"
         "Scientific")
             grep -q -F 'bash_aliases_git' $HOME/.bashrc || echo "source \"$DIR/$BYOBU_DISTRO/bash_aliases_git\"" >> $HOME/.bashrc
         ;;
+        "S")
+            # Centos7
+            grep -q -F 'bash_aliases_git' $HOME/.bashrc || echo "source \"$DIR/Centos/bash_aliases_git\"" >> $HOME/.bashrc
+        ;;
         *)
             # Use nice colors (green / red / blue)
             echo "Distro is $BYOBU_DISTRO"
@@ -28,6 +32,8 @@ BYOBU_BASHRC="/usr/share/byobu/profiles/bashrc"
 
 # create git config
 rm -f ${HOME}/.gitconfig
+echo "WARNING: git credentials are stored on disk"
+git config credential.helper store
 git config --global user.name "Fabrice Jammes"
 git config --global user.email "fabrice.jammes@in2p3.fr"
 

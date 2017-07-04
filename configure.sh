@@ -51,6 +51,8 @@ git config --global push.default simple
 git config --global core.excludesfile ${HOME}/${GLOBAL_GITIGNORE}
 git config --global core.editor vim
 
+git config credential.helper store
+
 # VI
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle

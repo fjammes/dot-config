@@ -7,3 +7,5 @@
 .*.swo
 .ropeproject
 .idea
+*~
+\#*\#

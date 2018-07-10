@@ -20,7 +20,7 @@ BYOBU_BASHRC="/usr/share/byobu/profiles/bashrc"
         ;;
         "S")
             # Centos7
-            grep -q -F 'bash_aliases_git' $HOME/.bashrc || echo "source \"$DIR/Centos/bash_aliases_git\"" >> $HOME/.bashrc
+            grep -q -F 'bash_aliases_git' $HOME/.bashrc || echo "source \"$DIR/centos/bash_aliases_git\"" >> $HOME/.bashrc
         ;;
         *)
             # Use nice colors (green / red / blue)

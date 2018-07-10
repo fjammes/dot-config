@@ -79,7 +79,7 @@ rm -rf ~/.oh-my-zsh ~/.zshrc
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 sudo -s -- /bin/chsh -s /bin/zsh qserv
-cat <<EOF > ~/.oh-my-zsh/custom/alias.zsh
+cat << EOF > ~/.oh-my-zsh/custom/alias.zsh
 alias cd_provision='cd ~/src/qserv/admin/tools/provision'
 alias cd_kubernetes='cd ~/src/qserv/admin/tools/docker/deployment/kubernetes'
 alias sshqserv='ssh -F ~/.lsst/qserv-cluster/ssh_config'

@@ -1,6 +1,9 @@
 set -e
 set -x
 
+# Install configure.sh dependencies
+yum install -y cmake go python-devel zsh
+
 # Install EPEL packages
 yum install -y byobu htop
 
@@ -10,11 +13,7 @@ sed -i "s/SELINUX=enforcing/SELINUX=disabled/" /etc/sysconfig/selinux
 sed -i 's|Environment="KUBELET_CGROUP_ARGS=|#Environment="KUBELET_CGROUP_ARGS=|' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 
 # Data and log are stored on Openstack host
-mkdir -p /qserv/custom
-mkdir /qserv/data
-mkdir /qserv/log
-mkdir /qserv/tmp
-mkdir /mnt/qserv
+mkdir -p /qserv/custom /qserv/data /qserv/log qserv/tmp /mnt/qserv
 chown -R '1000:1000' /qserv
 /bin/systemctl daemon-reload
 /bin/systemctl restart  docker

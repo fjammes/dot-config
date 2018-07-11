@@ -33,7 +33,6 @@ BYOBU_BASHRC="/usr/share/byobu/profiles/bashrc"
 # create git config
 rm -f ${HOME}/.gitconfig
 echo "WARNING: git credentials are stored on disk"
-git config credential.helper store
 git config --global user.name "Fabrice Jammes"
 git config --global user.email "fabrice.jammes@in2p3.fr"
 
@@ -51,7 +50,7 @@ git config --global push.default simple
 git config --global core.excludesfile ${HOME}/${GLOBAL_GITIGNORE}
 git config --global core.editor vim
 
-git config credential.helper store
+git config --global credential.helper cache --timeout=7200
 
 # VI
 
@@ -84,3 +83,11 @@ alias cd_provision='cd ~/src/qserv/admin/tools/provision'
 alias cd_kubernetes='cd ~/src/qserv/admin/tools/docker/deployment/kubernetes'
 alias sshqserv='ssh -F ~/.lsst/qserv-cluster/ssh_config'
 EOF
+
+# Qserv
+docker pull qserv/qserv:dev
+mkdir -p /home/qserv/src
+cd /home/qserv/src
+git clone https://github.com/lsst/qserv.git
+git clone https://github.com/lsst/qserv_deploy.git
+# /home/qserv/src/qserv/admin/tools/docker/3_build-git-image.sh -R tickets/DM-13979

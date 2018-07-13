@@ -84,6 +84,20 @@ alias cd_kubernetes='cd ~/src/qserv/admin/tools/docker/deployment/kubernetes'
 alias sshqserv='ssh -F ~/.lsst/qserv-cluster/ssh_config'
 EOF
 
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+git clone https://github.com/powerline/fonts.git --depth=1 /tmp/fonts
+/tmp/fonts/install.sh
+
+# TODO Update zshrc
+---
+#export TERM="xterm-256color"
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+---
+
 # Qserv
 docker pull qserv/qserv:dev
 mkdir -p /home/qserv/src

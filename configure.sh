@@ -3,6 +3,11 @@
 set -e
 set -x
 
+# Update /etc/host
+# required for minikube, see https://github.com/kubernetes/kubernetes/issues/39026
+IPV4=$(/sbin/ifconfig eth0 | grep -w inet | awk '{ print $2}')
+sudo sed  -i "1i $IPV4 $HOSTNAME" /etc/hosts
+
 DIR=$(cd "$(dirname "$0")"; pwd -P)
 GLOBAL_GITIGNORE=".gitignore_global"
 BYOBU_BASHRC="/usr/share/byobu/profiles/bashrc"

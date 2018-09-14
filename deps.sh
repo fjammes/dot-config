@@ -1,1 +1,1 @@
-sudo apt-get install build-essential cmake python-dev clang golang zsh
+sudo apt-get install build-essential cmake clang fonts-powerline golang python-dev zsh

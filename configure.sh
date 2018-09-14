@@ -5,7 +5,8 @@ set -x
 
 # Update /etc/host
 # required for minikube, see https://github.com/kubernetes/kubernetes/issues/39026
-IPV4=$(/sbin/ifconfig eth0 | grep -w inet | awk '{ print $2}')
+IFACE="enp0s3"
+IPV4=$(/sbin/ifconfig $IFACE | grep -w inet | awk '{ print $2}')
 sudo sed  -i "1i $IPV4 $HOSTNAME" /etc/hosts
 
 DIR=$(cd "$(dirname "$0")"; pwd -P)
@@ -82,12 +83,6 @@ $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer --gocode-complete
 rm -rf ~/.oh-my-zsh ~/.zshrc
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-sudo -s -- /bin/chsh -s /bin/zsh qserv
-cat << EOF > ~/.oh-my-zsh/custom/alias.zsh
-alias cd_provision='cd ~/src/qserv/admin/tools/provision'
-alias cd_kubernetes='cd ~/src/qserv/admin/tools/docker/deployment/kubernetes'
-alias sshqserv='ssh -F ~/.lsst/qserv-cluster/ssh_config'
-EOF
 
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
@@ -100,6 +95,12 @@ git clone https://github.com/powerline/fonts.git --depth=1 "$FONT_DIR"
 sed -i 's/ZSH_THEME="robbyrussell"/export TERM="xterm-256color"\nZSH_THEME="powerlevel9k\/powerlevel9k"/g' ~/.zshrc
 
 # Qserv
+sudo -s -- chsh -s /bin/zsh qserv
+cat << EOF > ~/.oh-my-zsh/custom/alias.zsh
+alias cd_provision='cd ~/src/qserv/admin/tools/provision'
+alias cd_kubernetes='cd ~/src/qserv/admin/tools/docker/deployment/kubernetes'
+alias sshqserv='ssh -F ~/.lsst/qserv-cluster/ssh_config'
+EOF
 docker pull qserv/qserv:dev
 mkdir -p /home/qserv/src
 cd /home/qserv/src

@@ -1,1 +1,1 @@
-sudo apt-get install build-essential cmake python-dev clang
+sudo apt-get install build-essential cmake python-dev clang golang zsh

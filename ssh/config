@@ -7,10 +7,10 @@ HostName lsst-dev.ncsa.illinois.edu
 User fjammes
 IdentityFile /home/qserv/.ssh/id_rsa_lsst
 
-Host ccqservbuild
-#GSSAPIAuthentication yes
-#GSSAPIDelegateCredentials yes
-ForwardX11 yes
+Host ccb
+GSSAPIAuthentication yes
+GSSAPIDelegateCredentials yes
+#ForwardX11 yes
 User fjammes
 HostName ccqservbuild.in2p3.fr
 ProxyCommand ssh -W %h:%p cc 
@@ -35,7 +35,7 @@ User fjammes
 IdentityFile /home/qserv/.ssh/id_rsa_lsst
 
 Host cc
-HostName ccage.in2p3.fr
+HostName cca.in2p3.fr
 User fjammes
     
 Host lpc

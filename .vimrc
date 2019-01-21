@@ -15,17 +15,19 @@ Plugin 'VundleVim/Vundle.vim'
 call vundle#end()
 filetype plugin indent on
 
+let g:go_version_warning = 0
+
 syntax on
 
 " colorscheme Tomorrow-Night
 " ------------------------------------------------------------------
 " Solarized Colorscheme Config
 " ------------------------------------------------------------------
-""let g:solarized_termtrans=1    "default value is 0
-""let g:solarized_termcolors=256    "default value is 16
-""syntax enable
+let g:solarized_termtrans=1    "default value is 0
+let g:solarized_termcolors=256    "default value is 16
+syntax enable
 set background=dark
-" colorscheme solarized
+colorscheme solarized
 " ------------------------------------------------------------------
 
 " disable bell/beep

@@ -1,6 +1,6 @@
 ControlPersist 4h
 ControlMaster auto
-ControlPath ~/.ssh/control:%h:%p:%r
+ControlPath ~/.ssh/socket/control:%h:%p:%r
 
 Host lsst-dev lsst-dev.ncsa.illinois.edu
 HostName lsst-dev.ncsa.illinois.edu
@@ -39,16 +39,15 @@ HostName cca.in2p3.fr
 User fjammes
     
 Host lpc
-HostName clrhp05.in2p3.fr
-User fjammes 
+HostName clrssh2.in2p3.fr 
+User jammes 
 PasswordAuthentication no
-ProxyCommand ssh -i ~/.ssh/id_rsa -W %h:%p fjammes@cc
-IdentityFile ~/.ssh/id_rsa
+IdentityFile ~/.ssh/id_rsa_lpc
 
-Host pc
-HostName clrinfopc04.in2p3.fr 
-User fjammes 
+Host fink_lpc
+Hostname clrlsstsrv02.in2p3.fr
+User fabrice
 PasswordAuthentication no
-ProxyCommand ssh lpc nc %h %p 
+ProxyJump lpc
 IdentityFile ~/.ssh/id_rsa
 
